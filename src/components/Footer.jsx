@@ -2,14 +2,18 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <>
+    <>{/*creat all the links in this pages that is not yet created*/}
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/settings">Settings</Link>
           </li>
           <li>
-            <Link to="/career">Career</Link>
+            <Link to="/location">Location</Link>
+          </li>
+          
+          <li>
+            <Link to="/help">Help</Link>
           </li>
         </ul>
       </nav>
