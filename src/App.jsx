@@ -8,6 +8,8 @@ import Programs from "./pages/Programs.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/Global.css";
+import Courses from "./pages/Courses.jsx";
+
 
 const App = () => {
   const fetchData = async () => {
@@ -25,6 +27,7 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <Courses />
       <Routes>
         <Route path="/home" element={<Programs />} />
         <Route path="/about" element={<About />} />
