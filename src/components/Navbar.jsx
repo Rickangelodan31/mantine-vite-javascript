@@ -1,27 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Home from "../pages/Home.jsx";
+import { ShoppingCart } from "phosphor-react";
+import Shop from "../pages/Shop/Shop.jsx";
+import "./navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="nav">
-      <nav>
-        <ul>
-          <li>
-            <Link className="a " to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className="a " to="/about">
-              About
-            </Link>
-            <Link Link className="a " to="/career">
-              Career
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="navbar">
+      <div className="links">
+        <Link to="/"> Shop </Link>
+
+        <Link to="/about">About</Link>
+        <Link to="/career">Career</Link>
+        <Link to="/Cart">
+          <ShoppingCart size={32} />
+        </Link>
+      </div>
     </div>
   );
 };

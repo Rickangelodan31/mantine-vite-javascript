@@ -2,25 +2,6 @@ body {
   margin: 0;
 }
 
-.nav {
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.nav a {
-  color: inherit;
-  padding: 0 1rem;
-  gap: 2px;
-}
 h1 {
   text-align: center;
   margin-top: 0px;
@@ -68,13 +49,32 @@ h1 {
   display: flex;
   justify-content: flex;
 }
+.Ricky-button .vinotha-button {
+  border: 1px solide black;
+  border-radius: 20px;
+  background: url("./images/github.jpg") no-repeat center center;
+  background-size: cover;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.Ric-abt button a {
+  background-image: "../images/github.jpg";
+}
 
 .Ric-abt:hover {
   background-color: lightblue;
   cursor: pointer;
 }
 .Ric-abt button:hover {
-  background-color: rgb(178, 222, 157);
+  background-image: "../images/github.jpg";
   cursor: pointer;
 }
 .vin-abt {
@@ -123,9 +123,9 @@ h1 {
 }
 
 .vin-abt button:hover {
-    background-color: rgb(178, 222, 157);
-    cursor: pointer;
-  }
+  background-color: rgb(178, 222, 157);
+  cursor: pointer;
+}
 .nav-abt {
   display: flex;
   justify-content: space-evenly;
