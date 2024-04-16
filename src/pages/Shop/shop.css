@@ -1,81 +1,75 @@
 /* Set body margin to 0 */
 body {
-    margin: 0;
+  margin: 0;
 }
 
 /* Define styles for the shop title */
 .shopTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 20px; /* Add padding for spacing */
-    background-color: #f0f0f0; /* Add background color */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px; /* Add padding for spacing */
+  background-color: #f0f0f0; /* Add background color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
 }
 
 .shopTitle h1 {
-    font-size: 24px; 
-    text-align: center; 
-    margin: 0; 
-    flex: 1; 
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+  flex: 1;
 }
 
-/* Define styles for the shop */
 .shop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-
 
 .shop ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 20px; 
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
 }
 
 .shop ul li {
-    margin: 10px; 
-    width: 200px; 
-    text-align: center; 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px; 
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-
 .shop ul img {
-    width: 100%; 
-    border-top-left-radius: 8px; 
-    border-top-right-radius: 8px; 
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 /* Define styles for course titles */
 .shop ul span {
-    font-weight: bold; 
-    margin-top: 10px; 
+  font-weight: bold;
+  margin-top: 10px;
 }
-
 
 .shop ul p {
-    margin-top: 10px;
-    color: #666; 
+  margin-top: 10px;
+  color: #666;
 }
-
 
 .formN {
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    padding: 0 15px; 
-    border: 1px solid #ccc; 
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
 }
 
-
 .shop ul li:hover {
-    transform: translateY(-5px); 
-    transition: transform 0.3s ease; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    cursor: pointer; 
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }

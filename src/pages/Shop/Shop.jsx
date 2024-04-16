@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./shop.css";
 import { Link } from "react-router-dom";
+import CourseDetail from '../CourseDetailsPage.jsx';
+
 const API_URL = "http://localhost:4000/courses";
 
 const courses = [
