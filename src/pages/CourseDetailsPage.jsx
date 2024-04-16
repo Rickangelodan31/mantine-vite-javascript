@@ -1,94 +1,35 @@
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+const API_URL = "http://localhost:4000";
 
 const CourseDetailPage = ({ addToCart }) => {
   const { id } = useParams();
-  const history = useHistory();
-  const courses = [
-    {
-      id: 1,
-      course: "Basic Cake Baking Workshop",
-      image: "Basic.png",
-      days: 1,
-      totalcost: 50,
-      productImage: "AdvancedCakes.png",
-    },
-    {
-      id: 2,
-      course: "Advanced Cake Baking Workshop",
-      image: "AdvancedCakes",
-      days: 2,
-      totalcost: 100,
-      productImage: "Basic.png",
-    },
-    {
-      id: 3,
-      course: " CupCake Baking Workshop",
-      image: "CupCakes.png",
-      days: 2,
-      totalcost: 50,
-      productImage: "Cookies.jpg",
-    },
-    {
-      id: 4,
-      course: "Cookies Baking Workshop",
-      image: "Cookies.jpg",
-      days: 1,
-      totalcost: 60,
-      productImage: "CupCakes.png",
-    },
-    {
-      id: 5,
-      course: "SugarlessCakes Baking Workshop",
-      image: "Sugarless.jpg",
-      days: 1,
-      totalcost: 50,
-      productImage: "DollCakes.png",
-    },
-    {
-      id: 6,
-      course: "Eggless Cake Baking Workshop",
-      image: "EgglessCakes.jpg",
-      days: 2,
-      totalcost: 100,
-      productImage: "EgglessCakes.jpg",
-    },
-    {
-      id: 7,
-      course: "PopSicles",
-      image: "PopSicles.png",
-      days: 2,
-      totalcost: 100,
-      productImage: "Luxury.png",
-    },
-    {
-      id: 8,
-      course: "Luxury Cake Fillings Masterclass",
-      image: "Luxury.png",
-      days: 2,
-      totalcost: 120,
-      productImage: "PopSlices.png",
-    },
-    {
-      id: 9,
-      course: "Doll Cakes",
-      image: "DollCakes.png",
-      days: 2,
-      totalcost: 100,
-      productImage: "SugarlessCakes.png",
-    },
-  ];
-  const course = courses.find((course) => course.id === parseInt(id));
+  const navigate = useNavigate();
+  const [course, setCourse] = useState();
+  useEffect(() => {
+    // Fetch courses data from the API endpoint
+    fetch(API_URL + "/courses/" + id)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response error");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        setCourse(data);
+      })
+      .catch((error) => console.error("Error fetching courses:", error));
+  }, [id]);
 
   const handleBuyNow = () => {
     addToCart(course);
-    history.push("/checkout");
+    navigate("/Cart");
   };
 
   return (
     <div>
-      <h1>Course Detail</h1>
       <h1>Course Detail</h1>
       {course ? (
         <div>
