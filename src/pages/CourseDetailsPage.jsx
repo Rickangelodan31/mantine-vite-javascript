@@ -1,11 +1,10 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 
+import React, { useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
 
-const CourseDetailPage = () => {
+const CourseDetailPage = ({ addToCart }) => {
   const { id } = useParams();
-
-  // Assuming courses are fetched from a backend API or stored in state
+  const history = useHistory();
   const courses = [
     {
       id: 1,
@@ -80,13 +79,27 @@ const CourseDetailPage = () => {
       productImage: "SugarlessCakes.png",
     },
   ];
-
   const course = courses.find((course) => course.id === parseInt(id));
+
+  const handleBuyNow = () => {
+    addToCart(course);
+    history.push("/checkout");
+  };
 
   return (
     <div>
       <h1>Course Detail</h1>
-      {course ? <CourseDetail course={course} /> : <p>Course not found</p>}
+      <h1>Course Detail</h1>
+      {course ? (
+        <div>
+          <h2>{course.course}</h2>
+          <img src={course.image} alt={course.course} />
+          <p>Total Cost: ${course.totalcost}</p>
+          <button onClick={handleBuyNow}>Buy Now</button>
+        </div>
+      ) : (
+        <p>Course not found</p>
+      )}
     </div>
   );
 };

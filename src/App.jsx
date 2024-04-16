@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./styles/Global.css";
 import Navbar from "./components/Navbar.jsx";
@@ -8,15 +9,21 @@ import Cart from "./pages/Cart/Cart.jsx";
 import CourseDetail from "./pages/CourseDetailsPage.jsx";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (course) => {
+    setCart([...cart, course]);
+  };
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Shop />} />
-        <Route path="/Cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<Career />} />
-        <Route path="/course/:id" component={<CourseDetail />} />
+        <Route path="/course/:id" element={<CourseDetail addToCart={addToCart} />} />
         <Route path="*" element={<h1>404 Page Not Found</h1>} />
       </Routes>
     </>
