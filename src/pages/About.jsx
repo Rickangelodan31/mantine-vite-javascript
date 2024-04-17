@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Ricky from "../images/Ricky.png";
 import Vinotha from "../images/Vinotha.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
 import "./About.css";
 
 const API_URL = "http://localhost:4000/Designers";
@@ -68,7 +66,7 @@ const AboutPage = () => {
         <div className="vin-abt">
           <img src={Vinotha} alt="Vinotha" />
           <p>
-            My name is Vinotha I am Based in Frankfurt am main, Netherland I am
+            My name is Vinotha I am Based in Rotterdam, Netherland. I am
             a Fullstack developer and this is one of the web pages I have
             created along with my businesses partner Ricardo
           </p>

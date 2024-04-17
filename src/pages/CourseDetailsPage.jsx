@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:4000";
 
-const CourseDetailPage = ({ addToCart }) => {
+const CourseDetailsPage = ({ addToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState();
@@ -23,8 +23,8 @@ const CourseDetailPage = ({ addToCart }) => {
       })
       .catch((error) => console.error("Error fetching courses:", error));
   }, [id]);
-  // const courses = [
-  //   {
+    //  const courses = [
+    //  {
   //     id: 1,
   //     course: "Basic Cake Baking Workshop",
   //     image:
@@ -122,7 +122,7 @@ const CourseDetailPage = ({ addToCart }) => {
           expires. We strongly recommend that participants maintain secure copies of their PDFs, including storing a copy in the cloud. Please be aware that we do not
           provide email support for PDF retrieval in cases of device failure or loss. Requests for failed or missed PDFs may take up to 7-10 days to process.</p>
 
-          <p>You will have 20 days of academic support via the dedicated email studentcoordinator@jeyadra.com, with email responses typically within 24 to 48 hours. 
+          <p>You will have 20 days of academic support via the dedicated email studentcoordinator@vinotha.com, with email responses typically within 24 to 48 hours. 
           To receive optimal support, we encourage you to share work-in-progress pictures/videos and describe your issue in detail. Please note that without pictures
           and details, you can expect very limited support.</p>
       </div>

@@ -7,7 +7,7 @@ import Shop from "./pages/Shop/Shop.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import CourseDetail from "./pages/CourseDetailsPage.jsx";
 import SignUpForm from "./pages/SignUpForm.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const API_URL = "http://localhost:4000";
 
