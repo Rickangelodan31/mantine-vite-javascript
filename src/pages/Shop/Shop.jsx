@@ -84,10 +84,6 @@ const Shop = () => {
             <li key={course.id}>
               <Link to={`/courses/${course.id}`}>
                 <img src={course.image} alt={course.course} />
-<<<<<<< HEAD
-                <h2>{course.course}</h2>
-=======
->>>>>>> d4ee7045ef8bc0439ab0a289a92e38f1284b4ee7
                 <p>${course.totalcost}</p>
               </Link>
 

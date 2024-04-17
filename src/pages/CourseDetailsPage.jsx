@@ -1,45 +1,11 @@
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-=======
->>>>>>> d4ee7045ef8bc0439ab0a289a92e38f1284b4ee7
+
 
 import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-<<<<<<< HEAD
-const API_URL = "http://localhost:4000/courses:/id";
-
-
-function CourseDetailsPage(props) {
-  const {courseId} = useParams()
-  const {course, setCourse} = useState(undefined);
-
-  useEffect(() =>{
-    const foundCourse = props.data.find((course) => course.id === courseId)
-    setCourse(foundCourse)
-  }, [courseId])
-
-  return(
-    <div>
-      <h1>Course Details</h1>
-      {course && <Link key ={course.id} className="details" to = {`/courses/${course.id}`}>
-        <img src ={course.image} className={resolveClassNames.img} />
-        <h3>{course.course}</h3>
-        <p>{course.days}</p>
-        <p>{course.totalCost}</p>
-        </Link> }
-
-    </div>
-  )
-
-}
-export default CourseDetailsPage;
-
-=======
-const CourseDetailPage = ({ addToCart }) => {
+const CourseDetailsPage = ({ addToCart }) => {
   const { id } = useParams();
-  const history = useHistory();
+  
   const courses = [
     {
       id: 1,
@@ -131,12 +97,27 @@ const CourseDetailPage = ({ addToCart }) => {
           <img src={course.image} alt={course.course} />
           <p>Total Cost: ${course.totalcost}</p>
           <button onClick={handleBuyNow}>Buy Now</button>
-        </div>
+        
+          <p>Validity & Access: 20 Days
+          Upon enrolment, you can access the class by visiting MY COURSES in the website. Join the Zoom session promptly at the scheduled start time using the registered
+          email. Please note that we do not send direct links to participants, you can join the session yourself by logging into the website/Android App using your
+          registered email id which was used during the class purchase. The access link will be activated three minutes prior to the Scheduled Start Time. After the live
+          session is completed, Recipe PDF & Video recording will be made available by the end of that day.</p>
+
+          <p>You will have 20 days of access to the recording of the LIVE SESSION and recipe PDF. Participants are expected to ensure course completion within the specified
+          validity period, as we do NOT have any provision for validity extensions. Participants are expected to download Recipe PDFs before the specified validity period
+          expires. We strongly recommend that participants maintain secure copies of their PDFs, including storing a copy in the cloud. Please be aware that we do not
+          provide email support for PDF retrieval in cases of device failure or loss. Requests for failed or missed PDFs may take up to 7-10 days to process.</p>
+
+          <p>You will have 20 days of academic support via the dedicated email studentcoordinator@jeyadra.com, with email responses typically within 24 to 48 hours. 
+          To receive optimal support, we encourage you to share work-in-progress pictures/videos and describe your issue in detail. Please note that without pictures
+          and details, you can expect very limited support.</p>
+      </div>
       ) : (
         <p>Course not found</p>
       )}
     </div>
   );
 };
->>>>>>> d4ee7045ef8bc0439ab0a289a92e38f1284b4ee7
 
+export default CourseDetailsPage;

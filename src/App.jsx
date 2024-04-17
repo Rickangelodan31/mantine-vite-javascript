@@ -21,10 +21,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Shop />} />
-<<<<<<< HEAD
         <Route path="/signup" element={< SignUpForm />} /> 
-=======
->>>>>>> d4ee7045ef8bc0439ab0a289a92e38f1284b4ee7
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<Career />} />
