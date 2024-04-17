@@ -31,6 +31,8 @@ function App() {
         <Route path="/" element={<Shop courses={courses} />} />
 
         <Route path="/" element={<Shop />} />
+        <Route path="/signup" element={< SignUpForm />} /> 
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/signup" element={<SignUpForm />} />
 
