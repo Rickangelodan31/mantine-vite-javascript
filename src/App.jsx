@@ -15,8 +15,31 @@ function App() {
   const [cart, setCart] = useState([]);
   const [courses, setCourses] = useState([]);
 
-  const addToCart = (course) => {
-    setCart([...cart, course]);
+  const addToCart = async (course) => {
+    /* setCart([...cart, course]); */
+
+    try {
+      const response = await fetch(`${API_URL}/carts`);
+      const parsed = await response.json();
+      if (parsed[0]) {
+        parsed[0].courses.push(course);
+        const updatedCart = await fetch(`${API_URL}/carts/${parsed[0].id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify( {courses: parsed[0].courses }),
+        });
+        const updatedCartParsed = await updatedCart.json();
+      } else {
+        const newCart = await fetch(`${API_URL}/carts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ courses: [course] }),
+        });
+        const newCartParsed = await newCart.json();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     fetch(API_URL + "/courses")
@@ -29,11 +52,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Shop courses={courses} />} />
-
-        <Route path="/" element={<Shop />} />
-        <Route path="/signup" element={< SignUpForm />} /> 
-        <Route path="/cart" element={<Cart />} />
-
         <Route path="/signup" element={<SignUpForm />} />
 
         <Route path="/cart" element={<Cart cartItems={cart} />} />

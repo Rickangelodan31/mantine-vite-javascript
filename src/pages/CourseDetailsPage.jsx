@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:4000";
 
-const CourseDetailPage = ({ addToCart }) => {
+const CourseDetail = ({ addToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState();
@@ -25,13 +25,13 @@ const CourseDetailPage = ({ addToCart }) => {
   }, [id]);
   
 
-  const handleBuyNow = () => {
-    addToCart(course);
+  const handleBuyNow = async () => {
+   await addToCart(course);
     navigate("/Cart");
   };
 
   return (<>
-    <div>
+    <div className="">
       <h1>Course Detail</h1>
       {course ? (
         <div>
@@ -64,4 +64,4 @@ const CourseDetailPage = ({ addToCart }) => {
 };
 
 
-export default CourseDetailsPage;
+export default CourseDetail;
