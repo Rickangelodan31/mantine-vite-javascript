@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+const Cart = ({ cartItems }) => {
+  console.log(cartItems);
+  //const [cartItemsState, setCartItems] = useState([]);
 
   // Function to remove item from cart
   const removeFromCart = (itemId) => {
-    setCartItems(cartItems.filter(item => item.id !== itemId));
+    setCartItems(cartItems.filter((item) => item.id !== itemId));
   };
 
   // Function to calculate total cost
   const calculateTotalCost = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(cartItems);
 
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="cart">
       <h2>Shopping Cart</h2>
       <ul>
-        {cartItems.map(item => (
+        {cartItems.map((item) => (
           <li key={item.id}>
             <span>{item.name}</span>
             <span>{item.quantity}</span>

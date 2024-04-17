@@ -7,6 +7,7 @@ import Shop from "./pages/Shop/Shop.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import CourseDetail from "./pages/CourseDetailsPage.jsx";
 import SignUpForm from "./pages/SignUpForm.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const API_URL = "http://localhost:4000";
 
@@ -33,7 +34,7 @@ function App() {
 
         <Route path="/signup" element={<SignUpForm />} />
 
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart cartItems={cart} />} />
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<Career />} />
         <Route
