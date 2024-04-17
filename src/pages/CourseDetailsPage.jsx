@@ -17,7 +17,7 @@ const CourseDetailPage = ({ addToCart }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setCourse(data);
       })
       .catch((error) => console.error("Error fetching courses:", error));
