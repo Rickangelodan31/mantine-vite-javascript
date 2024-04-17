@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./shop.css";
 import { Link } from "react-router-dom";
-import CourseDetail from "../CourseDetailsPage.jsx";
 
-const API_URL = "http://localhost:400/courses";
+const API_URL = "http://localhost:4000/courses";
 
-const courses = [
+const Courses = [
   {
     id: 1,
     course: "Basic Cake Baking Workshop",
@@ -47,34 +46,54 @@ const courses = [
   {
     id: 6,
     course: "Eggless Cake Baking Workshop",
-    image: "https://res.cloudinary.com/dsivotpgq/image/upload/v1713255053/EgglessCakes_jp4xbs.jpg",
+    image:
+      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713255053/EgglessCakes_jp4xbs.jpg",
     days: 2,
     totalcost: 100,
   },
   {
     id: 7,
     course: "PopSicles",
-    image: "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256568/PopSicles_peu2nr.png",
+    image:
+      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256568/PopSicles_peu2nr.png",
     days: 2,
     totalcost: 100,
   },
   {
     id: 8,
     course: "Luxury Cake Fillings Masterclass",
-    image: "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256614/Luxury_cyxrid.png" ,
+    image:
+      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256614/Luxury_cyxrid.png",
     days: 2,
     totalcost: 120,
   },
   {
     id: 9,
     course: "Doll Cakes",
-    image: "https://res.cloudinary.com/dsivotpgq/image/upload/v1713255019/DollCakes_vmiofo.png",
+    image:
+      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713255019/DollCakes_vmiofo.png",
     days: 2,
     totalcost: 100,
   },
 ];
 
-const Shop = () => {
+const Shop = ({ addToCart }) => {
+  // Define state to store the fetched courses
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    // Fetch courses data from the API endpoint
+    fetch(API_URL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response error");
+        }
+        return response.json();
+      })
+      .then((data) => setCourses(data))
+      .catch((error) => console.error("Error fetching courses:", error));
+  }, []);
+
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -82,59 +101,10 @@ const Shop = () => {
         <ul>
           {courses.map((course) => (
             <li key={course.id}>
-              <Link to={`/courses/${course.id}`}>
+              <Link to={`/course/${course.id}`}>
                 <img src={course.image} alt={course.course} />
                 <p>${course.totalcost}</p>
               </Link>
-
-              {/* <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>Advanced Cake Baking Workshop</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li> CupCake Baking Workshop</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>Cookies Baking Workshop</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>SugarlessCakes Baking Workshop</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>Eggless Cake Baking Workshop</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>PopSicles</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>Luxury Cake Fillings Masterclass</li>
-          </div>
-
-          <div>
-            {" "}
-            <img src="Basic.png" alt="" />
-            <li>Doll Cakes </li>
-            
-          </div> */}
             </li>
           ))}
         </ul>
