@@ -8,7 +8,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import CourseDetail from "./pages/CourseDetailsPage.jsx";
 import SignUpForm from "./pages/SignUpForm.jsx";
 
-const API_URL = "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL
 
 function App() {
   const [cart, setCart] = useState([]);

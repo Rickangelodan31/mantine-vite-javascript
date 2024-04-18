@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./shop.css";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:4000/courses";
+const API_URL = `${import.meta.env.VITE_API_URL}/courses`
 
 const Courses = [
   {
