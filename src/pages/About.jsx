@@ -17,7 +17,7 @@ const designers = [
     gitHub: "github.jpg",
   },
   {
-    id: 10,
+    id: 11,
     name: "vinotha",
     age: 32,
     profileImage: "Vinotha.jpg",
@@ -72,9 +72,7 @@ const AboutPage = () => {
             a Fullstack developer and this is one of the web pages I have
             created along with my businesses partner Ricardo
           </p>
-          <button type="button">
-            <a href="https://github.com/Rickangelodan31">Github</a>
-          </button>
+        
         </div>
       </div>
     </div>

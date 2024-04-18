@@ -6,7 +6,7 @@ import "./CourseDetails.css";
 
 const API_URL = "http://localhost:4000";
 
-const CourseDetailsPage = ({ addToCart }) => {
+const CourseDetail = ({ addToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState();
@@ -27,19 +27,23 @@ const CourseDetailsPage = ({ addToCart }) => {
   }, [id]);
   
 
-  const handleBuyNow = () => {
-    addToCart(course);
+  const handleBuyNow = async () => {
+   await addToCart(course);
     navigate("/Cart");
   };
 
   return (<>
-    <div className="details">
+    <div className="wrapper">
       <h1>Course Detail</h1>
       {course ? (
         <div className="coursed">
           <h2>{course.course}</h2>
           <img src={course.image} alt={course.course} />
-          <p>Total Cost: ${course.totalcost}</p>
+          <h4>Instuctor: {course.instructor}</h4>
+          <h4>Language: {course.language}</h4>
+          <h4>Validity: {course.validity}</h4>
+          <h4>Time: {course.time}</h4>
+          <h4>Total Cost: ${course.totalcost}</h4>
           <button onClick={handleBuyNow}>Buy Now</button>
         
           <p>Validity & Access: 20 Days
@@ -65,4 +69,5 @@ const CourseDetailsPage = ({ addToCart }) => {
   );
 };
 
-export default CourseDetailsPage;
+
+export default CourseDetail;
