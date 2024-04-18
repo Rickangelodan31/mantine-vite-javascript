@@ -12,7 +12,9 @@
   display: flex;
   align-items: center;
 }
-
+.logo{
+  
+}
 .links a {
   text-decoration: none;
   color: white;

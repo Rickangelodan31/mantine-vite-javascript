@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./shop.css";
 import { Link } from "react-router-dom";
 
+
+
 const API_URL = "http://localhost:4000/courses";
 
 const Courses = [
@@ -96,7 +98,9 @@ const Shop = ({ addToCart }) => {
 
   return (
     <div className="shop">
+      
       <div className="shopTitle">
+        
         <h1>Tasty Temptations Baking School</h1>
         <ul>
           {courses.map((course) => (

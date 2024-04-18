@@ -126,9 +126,10 @@ const Cart = () => {
             <li key={item.product.id}>
               <span>{item.product.course}</span>
               <span>Price: ${item.product.totalcost}</span>
-              <span>Count: {item.count}</span>
-              <button onClick={() => addMoreToCart(item.product.id)}>+</button>
               <button type="button" onClick={() => removeFromCart(item.product.id)}>-</button>
+              <span> {item.count}</span>
+              <button onClick={() => addMoreToCart(item.product.id)}>+</button>
+              
             </li>
           ))}
       </ul>
