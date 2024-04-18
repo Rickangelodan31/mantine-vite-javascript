@@ -1,6 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "./CourseDetails.css";
+
+
 
 const API_URL = "http://localhost:4000";
 
@@ -31,13 +33,17 @@ const CourseDetail = ({ addToCart }) => {
   };
 
   return (<>
-    <div className="">
+    <div className="wrapper">
       <h1>Course Detail</h1>
       {course ? (
-        <div>
+        <div className="coursed">
           <h2>{course.course}</h2>
           <img src={course.image} alt={course.course} />
-          <p>Total Cost: ${course.totalcost}</p>
+          <h4>Instuctor: {course.instructor}</h4>
+          <h4>Language: {course.language}</h4>
+          <h4>Validity: {course.validity}</h4>
+          <h4>Time: {course.time}</h4>
+          <h4>Total Cost: ${course.totalcost}</h4>
           <button onClick={handleBuyNow}>Buy Now</button>
         
           <p>Validity & Access: 20 Days
@@ -51,7 +57,7 @@ const CourseDetail = ({ addToCart }) => {
           expires. We strongly recommend that participants maintain secure copies of their PDFs, including storing a copy in the cloud. Please be aware that we do not
           provide email support for PDF retrieval in cases of device failure or loss. Requests for failed or missed PDFs may take up to 7-10 days to process.</p>
 
-          <p>You will have 20 days of academic support via the dedicated email studentcoordinator@jeyadra.com, with email responses typically within 24 to 48 hours. 
+          <p>You will have 20 days of academic support via the dedicated email studentcoordinator@vinotha.com, with email responses typically within 24 to 48 hours. 
           To receive optimal support, we encourage you to share work-in-progress pictures/videos and describe your issue in detail. Please note that without pictures
           and details, you can expect very limited support.</p>
       </div>

@@ -23,7 +23,7 @@ const Cart = () => {
         setTotal(reduced);
         console.log("cart", parsed.courses);
       } else {
-        setError("Nothing here...");
+        setError("The Cart is empty...");
       }
     } catch (error) {
       console.log(error);
@@ -106,5 +106,6 @@ const Cart = () => {
     </div>
   );
 };
+
 
 export default Cart;

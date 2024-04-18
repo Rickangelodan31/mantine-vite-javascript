@@ -97,7 +97,7 @@ const Shop = ({ addToCart }) => {
   return (
     <div className="shop">
       <div className="shopTitle">
-        <h1>School Of Baking</h1>
+        <h1>Tasty Temptations Baking School</h1>
         <ul>
           {courses.map((course) => (
             <li key={course.id}>
