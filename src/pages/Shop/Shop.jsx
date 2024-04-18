@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import "./shop.css";
 import { Link } from "react-router-dom";
+import logo from "../../components/logo/Logo.png"
 
-
-
-const API_URL = "http://localhost:4000/courses";
+const API_URL = `${import.meta.env.VITE_API_URL}/courses`
 
 const Courses = [
   {
@@ -98,7 +97,7 @@ const Shop = ({ addToCart }) => {
 
   return (
     <div className="shop">
-      
+      <img src={logo} className="logoimg" />
       <div className="shopTitle">
         
         <h1>Tasty Temptations Baking School</h1>

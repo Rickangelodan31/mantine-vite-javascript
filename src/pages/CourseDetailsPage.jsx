@@ -4,7 +4,7 @@ import "./CourseDetails.css";
 
 
 
-const API_URL = "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL
 
 const CourseDetail = ({ addToCart }) => {
   const { id } = useParams();

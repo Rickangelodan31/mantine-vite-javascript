@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "./About.css";
 
-const API_URL = "http://localhost:4000/Designers";
+const API_URL = import.meta.env.VITE_API_URL
 
 const designers = [
   {

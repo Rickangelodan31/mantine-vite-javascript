@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Cart.css";
 
-
-const API_URL = "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState();
@@ -17,12 +16,13 @@ const Cart = () => {
       if (parsed.products && parsed.products.length !== 0) {
         setCartItems(parsed.products);
         const reduced = parsed.products.reduce((acc, item) => {
-          return acc + (item.product.totalcost * item.count);
+          return acc + item.product.totalcost * item.count;
         }, 0);
         console.log("cost", reduced);
         setTotal(reduced);
         console.log("cart", parsed.courses);
       } else {
+        setTotal(0);
         setError("The Cart is empty...");
       }
     } catch (error) {
@@ -33,11 +33,10 @@ const Cart = () => {
   const removeFromCart = async (id) => {
     try {
       const copy = JSON.parse(JSON.stringify(cartItems));
-      const foundProduct = copy.find(item => item.product.id === id);
+      const foundProduct = copy.find((item) => item.product.id === id);
       if (foundProduct.count === 1) {
-
         const filtered = copy.filter((item) => item.product.id !== id);
-        console.log("filtered", filtered)
+        console.log("filtered", filtered);
         const body = JSON.stringify({ products: filtered });
         const response = await fetch(`${API_URL}/carts/1`, {
           method: "PUT",
@@ -52,55 +51,52 @@ const Cart = () => {
           if (item.product.id === id) {
             let { count, product } = item;
             count -= 1;
-            return { count, product }
+            return { count, product };
           } else {
-            return item
+            return item;
           }
-        })
-        const body = JSON.stringify({ products: newProducts })
+        });
+        const body = JSON.stringify({ products: newProducts });
         const response = await fetch(`${API_URL}/carts/1`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body,
         });
-        const parsed = await response.json()
-        console.log(parsed)
+        const parsed = await response.json();
+        console.log(parsed);
         await fetchCart();
       }
     } catch (error) {
       console.log(error);
     }
-
   };
 
   const addMoreToCart = async (id) => {
     try {
       const copy = JSON.parse(JSON.stringify(cartItems));
 
-      const changedCart = copy.map(item => {
+      const changedCart = copy.map((item) => {
         if (item.product.id === id) {
           let { count, product } = item;
-          count += 1
-          return { count, product }
+          count += 1;
+          return { count, product };
         } else {
-          return item
+          return item;
         }
-      })
-      const body = JSON.stringify({ products: changedCart })
+      });
+      const body = JSON.stringify({ products: changedCart });
       const response = await fetch(`${API_URL}/carts/1`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body,
       });
-      const parsed = await response.json()
-      console.log(parsed)
+      const parsed = await response.json();
+      console.log(parsed);
       await fetchCart();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-
-
+  };
 
   const checkout = async () => {
     try {
@@ -126,10 +122,14 @@ const Cart = () => {
             <li key={item.product.id}>
               <span>{item.product.course}</span>
               <span>Price: ${item.product.totalcost}</span>
-              <button type="button" onClick={() => removeFromCart(item.product.id)}>-</button>
-              <span> {item.count}</span>
+              <span>Count: {item.count}</span>
               <button onClick={() => addMoreToCart(item.product.id)}>+</button>
-              
+              <button
+                type="button"
+                onClick={() => removeFromCart(item.product.id)}
+              >
+                -
+              </button>
             </li>
           ))}
       </ul>
