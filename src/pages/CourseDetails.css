@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+.title{
+    text-align: center;
+    padding-left: 50px;
+}
+.detail img{
+    width: 300px;
+   
+}
+
+.detail p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 800px;
+    
+}
+
+

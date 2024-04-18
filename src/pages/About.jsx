@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Ricky from "../images/Ricky.png";
 import Vinotha from "../images/Vinotha.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./About.css";
 
 const API_URL = "http://localhost:4000/Designers";
