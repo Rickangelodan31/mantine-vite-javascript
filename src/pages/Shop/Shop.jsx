@@ -39,7 +39,7 @@ const Courses = [
     id: 5,
     course: "SugarlessCakes Baking Workshop",
     image:
-      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256568/PopSicles_peu2nr.png",
+      "https://res.cloudinary.com/dsivotpgq/image/upload/v1713256604/SugarlessCakes_f6taa7.jpg",
     days: 1,
     totalcost: 50,
   },
