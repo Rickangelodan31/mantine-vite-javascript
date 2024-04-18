@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SignUp.css";
 
 
  
@@ -21,7 +22,7 @@ function SignUpForm({handleNewPerson}) {
   }
       return (
     <div className="signup">
-      <h4>Sign Up Form</h4>
+      <h2>Sign Up Form</h2>
   
       <form onSubmit={handleSubmit}>
                 
@@ -48,7 +49,7 @@ function SignUpForm({handleNewPerson}) {
 
         
             <ul>
-        <label>Email Id: </label>
+        <label>Email Id:   </label>
         <input 
             type="text" 
             name="mailid" 

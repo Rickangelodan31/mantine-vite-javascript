@@ -103,7 +103,7 @@ const Shop = ({ addToCart }) => {
             <li key={course.id}>
               <Link to={`/course/${course.id}`}>
                 <img src={course.image} alt={course.course} />
-                <p>${course.totalcost}</p>
+                <p>{course.course}</p>
               </Link>
             </li>
           ))}

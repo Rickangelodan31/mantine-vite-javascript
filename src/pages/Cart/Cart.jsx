@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./Cart.css";
+
 
 const API_URL = "http://localhost:4000";
 const Cart = () => {

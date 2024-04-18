@@ -34,7 +34,7 @@ const CourseDetail = ({ addToCart }) => {
 
   return (<>
     <div className="wrapper">
-      <h1>Course Detail</h1>
+      <h1>Course Details</h1>
       {course ? (
         <div className="coursed">
           <h2>{course.course}</h2>
@@ -42,7 +42,8 @@ const CourseDetail = ({ addToCart }) => {
           <h4>Instuctor: {course.instructor}</h4>
           <h4>Language: {course.language}</h4>
           <h4>Validity: {course.validity}</h4>
-          <h4>Time: {course.time}</h4>
+          <h4>Time: {course.timing}</h4>
+          <h4>Days: {course.days}</h4>
           <h4>Total Cost: ${course.totalcost}</h4>
           <button onClick={handleBuyNow}>Buy Now</button>
         
