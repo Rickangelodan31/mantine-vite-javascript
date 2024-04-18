@@ -53,16 +53,14 @@ const AboutPage = () => {
             am a Fullstack developer and this is one of the web pages I have
             created along with my businesses partner Vinotha
           </p>
-
-          <>
-            <img src="github.jpg" alt="" />
+          <div className="alink">
             <a href="https://www.facebook.com">
-              <FontAwesomeIcon icon={faFacebook} />
+              <FontAwesomeIcon icon={faFacebook} className="a"/>
             </a>
             <a href="https://github.com">
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} className="a"/>
             </a>
-          </>
+        </div>
         </div>
 
         <div className="vin-abt">
@@ -72,7 +70,13 @@ const AboutPage = () => {
             a Fullstack developer and this is one of the web pages I have
             created along with my businesses partner Ricardo
           </p>
-        
+          <div className="alink">
+          <a href="https://www.facebook.com">
+              <FontAwesomeIcon icon={faFacebook} className="a"/>
+            </a>
+            <a href="https://github.com">
+              <FontAwesomeIcon icon={faGithub} className="a"/>
+            </a></div>
         </div>
       </div>
     </div>
