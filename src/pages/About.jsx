@@ -3,7 +3,7 @@ import axios from "axios";
 import Ricky from "../images/Ricky.png";
 import Vinotha from "../images/Vinotha.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "./About.css";
 
 const API_URL = "http://localhost:4000/Designers";
@@ -56,12 +56,12 @@ const AboutPage = () => {
           </p>
           <div className="alink">
             <a href="https://www.facebook.com">
-              <FontAwesomeIcon icon={faFacebook} className="a"/>
+              <FontAwesomeIcon icon={faFacebook} className="a" />
             </a>
             <a href="https://github.com">
-              <FontAwesomeIcon icon={faGithub} className="a"/>
+              <FontAwesomeIcon icon={faGithub} className="a" />
             </a>
-        </div>
+          </div>
         </div>
 
         <div className="vin-abt">
@@ -72,12 +72,16 @@ const AboutPage = () => {
             created along with my businesses partner Ricardo
           </p>
           <div className="alink">
-          <a href="https://www.facebook.com">
-              <FontAwesomeIcon icon={faFacebook} className="a"/>
+            <a href="https://www.facebook.com">
+              <FontAwesomeIcon icon={faFacebook} className="a" />
             </a>
             <a href="https://github.com">
-              <FontAwesomeIcon icon={faGithub} className="a"/>
+              <FontAwesomeIcon icon={faGithub} className="a" />
+            </a>
+            <a href="https://www.linkedin.com/in/vinotha-arivalagan-609895258/" target="_blank">
+              <FontAwesomeIcon icon={faLinkedin} className="a" />
             </a></div>
+
         </div>
       </div>
     </div>

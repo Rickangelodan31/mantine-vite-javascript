@@ -21,18 +21,33 @@ function App() {
       const response = await fetch(`${API_URL}/carts`);
       const parsed = await response.json();
       if (parsed[0]) {
-        parsed[0].courses.push(course);
-        const updatedCart = await fetch(`${API_URL}/carts/${parsed[0].id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ courses: parsed[0].courses }),
-        });
-        const updatedCartParsed = await updatedCart.json();
+        const existingCourse = parsed[0].products.find((product) => course.id===product.product.id)
+        if(existingCourse) {
+          existingCourse.count +=1;
+          const filtered = parsed[0].products.filter((product) => product.product.id !== course.id)
+          filtered.push(existingCourse)
+          const responseAdded = await fetch(`${API_URL}/carts/${parsed[0].id}` , {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({products: filtered}),
+          })
+          const parsedAdded = await responseAdded.json();
+        } else {
+          parsed[0].products.push({count:1, product:course});
+          console.log(parsed[0].products)
+          const updatedCart = await fetch(`${API_URL}/carts/${parsed[0].id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ products: parsed[0].products }),
+          });
+          const updatedCartParsed = await updatedCart.json();
+        }
+        
       } else {
         const newCart = await fetch(`${API_URL}/carts`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ courses: [course] }),
+          body: JSON.stringify({ products: [{ count: 1, product: course }] }),
         });
         const newCartParsed = await newCart.json();
       }
