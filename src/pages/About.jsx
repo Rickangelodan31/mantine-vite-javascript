@@ -22,6 +22,7 @@ const designers = [
     age: 32,
     profileImage: "Vinotha.jpg",
     gitHub: "github.jpg",
+    LinkedIn: "https://www.linkedin.com/in/vinotha-arivalagan-609895258/"
   },
 ];
 

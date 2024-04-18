@@ -8,7 +8,6 @@ import Cart from "./pages/Cart/Cart.jsx";
 import CourseDetail from "./pages/CourseDetailsPage.jsx";
 import SignUpForm from "./pages/SignUpForm.jsx";
 
-
 const API_URL = "http://localhost:4000";
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
         const updatedCart = await fetch(`${API_URL}/carts/${parsed[0].id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify( {courses: parsed[0].courses }),
+          body: JSON.stringify({ courses: parsed[0].courses }),
         });
         const updatedCartParsed = await updatedCart.json();
       } else {

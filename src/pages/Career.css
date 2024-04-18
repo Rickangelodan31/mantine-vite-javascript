@@ -1,0 +1,40 @@
+.position {
+  margin-bottom: 20px;
+  /* border: 1px solid #ccc; */
+  padding: 5px;
+  background-color: inherit;
+  box-sizing: border-box;
+  width: 800px;
+  height: 20vh;
+  display: flex;
+}
+
+.position li {
+  font-weight: bold;
+  color: black;
+  margin: 10px;
+  list-style: none;
+}
+
+.position p {
+  margin-bottom: 2px;
+  margin: 10px;
+  color: black;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+h2 {
+  margin: 50px 50px 50px 10px;
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+}
+
+.link {
+  text-decoration: none;
+}

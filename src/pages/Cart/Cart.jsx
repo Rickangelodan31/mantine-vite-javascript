@@ -47,27 +47,6 @@ const Cart = () => {
       console.log(error);
     }
   };
-  const addMoreToCart = async (id) => {
-    const itemToAddMore = cartItems.find((item) => item.id === id);
-    if (!itemToAddMore) {
-      console.log("Item not found in cart");
-      return;
-    }
-  const updatedCart = [...cartItems, itemToAddMore];
-    const body = JSON.stringify({ courses: updatedCart });
-    try {
-      const response = await fetch(`${API_URL}/carts/1`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body,
-      });
-      const parsed = await response.json();
-      console.log(parsed);
-      await fetchCart();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const checkout = async () => {
     try {
@@ -106,6 +85,5 @@ const Cart = () => {
     </div>
   );
 };
-
 
 export default Cart;
