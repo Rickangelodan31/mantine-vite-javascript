@@ -1,8 +1,8 @@
-*{
-   margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 .wrapper{
     margin: 50px auto;
@@ -64,3 +64,24 @@
     background-color: #0056b3;
   }
 
+.coursed p {
+  color: #666;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.coursed button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.coursed button:hover {
+  background-color: #0056b3;
+}

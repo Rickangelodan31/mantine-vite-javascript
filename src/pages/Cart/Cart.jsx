@@ -8,6 +8,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState();
   const [total, setTotal] = useState(0);
+  const [count, setCount] = useState(0);
 
   const fetchCart = async () => {
     try {
@@ -68,14 +69,17 @@ const Cart = () => {
       <h2>Shopping Cart</h2>
       <h4>{error ? error : undefined}</h4>
       <ul>
-        {!error && cartItems.map((item) => (
-          <li key={item.id}>
-            <span>{item.course}</span>
-            <span>Price: ${item.totalcost}</span>
-            <button onClick={() => removeFromCart(item.id)}>Remove</button>
-          </li>
-        ))}
+        {!error &&
+          cartItems.map((item) => (
+            <li key={item.id}>
+              <span>{item.course}</span>
+              <span>Price: ${item.totalcost}</span>
+              <button onClick={() => addMoreToCart(item.id)}>+</button>
+              <button onClick={() => removeFromCart(item.id)}>-</button>
+            </li>
+          ))}
       </ul>
+
       <div>
         <h3>Total Cost: ${total}</h3>
         <button onClick={checkout}>Proceed to Checkout</button>
@@ -83,6 +87,5 @@ const Cart = () => {
     </div>
   );
 };
-
 
 export default Cart;
